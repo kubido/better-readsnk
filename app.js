@@ -12,7 +12,8 @@ const fetchAndModifiy = (url, options = {}) => {
         .replace(/<img/g, "<img loading=\"lazy\" width=\"1600\" height=\"1124\"")
         .replace(/href\=\"\/css/g, 'href="https://ww7.readsnk.com/css')
         .replace(/src\=\"\/js/g, 'href="https://ww7.readsnk.com/js')
-        .replace(/https:\/\/ww[0-7]+.readsnk.com\/chapter\/shingeki-no-kyojin-chapter-/g, `${options.gshost}/chapter/`)
+        // .replace(/https:\/\/(.*-)([0-9]+)/g, `/chapter/$2`)
+        .replace(/(https:\/\/.*\/chapter\/)(.+)([0-9]+)"/g, '/chapter/$2$3"')
       options.resolve(htmlData)
     })
     .catch(err => {
