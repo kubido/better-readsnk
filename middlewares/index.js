@@ -9,7 +9,7 @@ const setScrapeUrl = (req, res, next) => {
   } else {
     const chapterId = +url.match(/\d+/)[0]
     url = `https://ww7.readsnk.com/chapter/shingeki-no-kyojin-chapter-${chapterId}`
-    if (chapterId >= LATEST_CHAPTER) url = "https://ww7.readsnk.com/not%20found"
+    if (chapterId > LATEST_CHAPTER) url = "https://ww7.readsnk.com/not%20found"
   }
   req.targetUrl = url
   next()
